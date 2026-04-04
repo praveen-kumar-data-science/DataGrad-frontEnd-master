@@ -1,0 +1,183 @@
+
+<div class="bgcolor">
+  @if(!isSmallScreen) {
+  <mat-grid-list cols="2" rowHeight="100%">
+    <mat-grid-tile colspan="1">
+      <!-- Left half content goes here -->
+      <div style="position: absolute; left: 60px;">
+        <p class="my-text">Get Your First Data Engineer/AI job in USA!</p>
+        <div class="questions-section">
+          <p>Are you:</p>
+          <ul>
+            <li>Planning to move to US and work as Big Data/AI Engineer?</li>
+            <li>Already in the USA with F1/H4 or other visa and want to get a job as Big Data/AI Engineer?</li>
+          </ul>
+          <p class="closing-text">You are in the right place. Get ready for the challenge!</p>
+        </div>
+        <button mat-raised-button routerLink="/" fragment="what-we-do" class="get-started-btn">
+          Get started <mat-icon>arrow_forward</mat-icon>
+        </button>
+      </div>
+    </mat-grid-tile>
+
+      <mat-grid-tile colspan="1">
+        <!-- Right half content goes here -->
+        <div class="right-content">
+          <app-merged-carousel></app-merged-carousel>
+        </div>
+      </mat-grid-tile>
+  </mat-grid-list>
+}
+@if(isSmallScreen) {
+  <div cols="2" rowHeight="100%">
+<div colspan="1">
+  <!-- Left half content goes here -->
+  <div style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); text-align: left;  overflow: hidden;">
+    <p class="my-text">Get Your First Data Engineer/AI job in USA!</p>
+    <div class="questions-section">
+      <p>Are you:</p>
+      <ul>
+        <li>Planning to move to US and work as Big Data/AI Engineer?</li>
+        <li>Already in the USA with F1/H4 or other visa and want to get a job as Big Data/AI Engineer?</li>
+      </ul>
+      <p class="closing-text">You are in the right place. Get ready for the challenge!</p>
+    </div>
+    <button mat-raised-button routerLink="/" fragment="what-we-do" class="get-started-btn">
+      Get started <mat-icon>arrow_forward</mat-icon>
+    </button>
+  </div>
+</div>
+</div>
+}
+</div>
+
+<!-- What We Do Section -->
+<div id="what-we-do" class="what-we-do-section">
+  <div class="container">
+    <h2>What we do:</h2>
+    <ul class="services-list">
+      <li>Train you for getting into Big data jobs in the US</li>
+      <li>Build real world projects to showcase to your employer</li>
+      <li>Build a US based resume</li>
+      <li>Conduct mock interviews to prepare you well for real interviews</li>
+      <li>Help you with University and degree program selection if you are not in the US along with the job prep training so you could focus on getting a job once you land US</li>
+      <li>Build your own portfolio website + Linkedin profile to get interview calls automatically</li>
+    </ul>
+  </div>
+</div>
+
+<!-- Curriculum Details Section -->
+<div id="curriculum-details" class="curriculum-section">
+  <div class="container">
+    <h2>Curriculum details:</h2>
+    <div class="curriculum-list">
+      <div *ngFor="let item of curriculumItems; let i = index" class="curriculum-item">
+        <button type="button" class="curriculum-title" (click)="toggleCurriculum(i)">
+          <span>{{ item.title }}</span>
+          <mat-icon>{{ expandedIndex === i ? 'expand_less' : 'expand_more' }}</mat-icon>
+        </button>
+        <div class="curriculum-detail" *ngIf="expandedIndex === i">
+          <p>{{ item.detail }}</p>
+        </div>
+      </div>
+    </div>
+
+    <h2 class="subheading">Job Preparation</h2>
+    <div class="curriculum-list">
+      <div *ngFor="let item of jobPrepItems; let j = index" class="curriculum-item">
+        <button type="button" class="curriculum-title" (click)="toggleCurriculum(curriculumItems.length + j)">
+          <span>{{ item.title }}</span>
+          <mat-icon>{{ expandedIndex === curriculumItems.length + j ? 'expand_less' : 'expand_more' }}</mat-icon>
+        </button>
+        <div class="curriculum-detail" *ngIf="expandedIndex === curriculumItems.length + j">
+          <p>{{ item.detail }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Decision Tree Section -->
+<div class="decision-tree-section">
+  <div class="tree-container">
+    <div class="tree-node tree-node-top">Where are you right now?</div>
+    <div class="tree-arrows">
+      <span class="arrow-left">↙</span>
+      <span class="arrow-right">↘</span>
+    </div>
+    <div class="tree-row tree-row-main">
+      <div class="tree-node tree-node-left">I am inside USA</div>
+      <div class="tree-node tree-node-right">I am outside USA</div>
+    </div>
+    <div class="tree-row tree-row-branches">
+      <div class="tree-node branch-node branch-left">
+        <div class="option-title">Great, so you either have a F1 / H1 / H4 or other visa</div>
+        <ul class="option-sublist">
+          <li>Start your <span class="highlight-training">TRAINING & JOB PREP</span> right away</li>
+        </ul>
+      </div>
+      <div class="branch-right-block">
+        <div class="tree-node branch-node branch-right">You need to move to the US first</div>
+        <div class="tree-row tree-row-branch-options">
+          <div class="tree-node option-node">
+            <div class="option-title">Study in the US (Get F1 Visa)</div>
+            <ul class="option-sublist">
+              <li>University and degree program selection</li>
+              <li>Application to US Univs</li>
+              <li><span class="highlight-training">TRAINING AND JOB PREP</span> even before landing in the US</li>
+            </ul>
+          </div>
+          <div class="tree-node option-node">
+            <div class="option-title">Move to US via spouse H4 or L visa</div>
+            <ul class="option-sublist">
+              <li>Get your visa - Strategies for cracking visa interview</li>
+              <li><span class="highlight-training">TRAINING AND JOB PREP</span> to prepare you even before landing in the US</li>
+            </ul>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Contact Section -->
+<div id="contact" class="contact-container">
+  <h1>Contact Us</h1>
+  <p>We'd love to hear from you. Send us a message and we'll respond as soon as possible.</p>
+
+  <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="contact-form">
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Name</mat-label>
+      <input matInput formControlName="name" required>
+      <mat-error *ngIf="contactForm.get('name')?.hasError('required')">
+        Name is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email" type="email" required>
+      <mat-error *ngIf="contactForm.get('email')?.hasError('required')">
+        Email is required
+      </mat-error>
+      <mat-error *ngIf="contactForm.get('email')?.hasError('email')">
+        Please enter a valid email address
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Message</mat-label>
+      <textarea matInput formControlName="message" rows="5" required></textarea>
+      <mat-error *ngIf="contactForm.get('message')?.hasError('required')">
+        Message is required
+      </mat-error>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit" [disabled]="!contactForm.valid">
+      Send Message
+    </button>
+  </form>
+</div>
+
+
