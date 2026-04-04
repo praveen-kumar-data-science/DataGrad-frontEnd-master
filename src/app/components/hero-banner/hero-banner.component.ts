@@ -72,6 +72,10 @@ export class HeroBannerComponent {
       title: 'Resume/CV Preparation (one-on-one)',
       detail: 'Personalized resume review and rewriting to highlight your data engineering and AI experience for US recruiters.'
     },
+     {
+      title: 'Industry level Mock Interviews with feedback',
+      detail: 'Personalized resume review and rewriting to highlight your data engineering and AI experience for US recruiters.'
+    },
     {
       title: 'Personal Portfolio Website',
       detail: 'Design and build a portfolio website that showcases your projects, skills, and technical story in a compelling way.'
@@ -112,3 +116,4 @@ export class HeroBannerComponent {
     }
   }
 }
+

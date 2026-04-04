@@ -61,7 +61,7 @@
       <li>Build a US based resume</li>
       <li>Conduct mock interviews to prepare you well for real interviews</li>
       <li>Help you with University and degree program selection if you are not in the US along with the job prep training so you could focus on getting a job once you land US</li>
-      <li>Build your own portfolio website + Linkedin profile to get interview calls automatically</li>
+      <li>Build your own portfolio website + Linkedin profile to maximize interview calls automatically</li>
     </ul>
   </div>
 </div>
@@ -69,7 +69,12 @@
 <!-- Curriculum Details Section -->
 <div id="curriculum-details" class="curriculum-section">
   <div class="container">
-    <h2>Curriculum details:</h2>
+     <h1 class="training-main-title">TRAINING & JOB PREP</h1>
+    <div class="curriculum-flex">
+
+  <!-- LEFT: Curriculum -->
+  <div class="curriculum-section-block">
+    <h2>Curriculum details</h2>
     <div class="curriculum-list">
       <div *ngFor="let item of curriculumItems; let i = index" class="curriculum-item">
         <button type="button" class="curriculum-title" (click)="toggleCurriculum(i)">
@@ -81,7 +86,10 @@
         </div>
       </div>
     </div>
+  </div>
 
+  <!-- RIGHT: Job Preparation -->
+  <div class="curriculum-section-block">
     <h2 class="subheading">Job Preparation</h2>
     <div class="curriculum-list">
       <div *ngFor="let item of jobPrepItems; let j = index" class="curriculum-item">
@@ -94,6 +102,9 @@
         </div>
       </div>
     </div>
+  </div>
+
+</div>
   </div>
 </div>
 
@@ -113,7 +124,7 @@
       <div class="tree-node branch-node branch-left">
         <div class="option-title">Great, so you either have a F1 / H1 / H4 or other visa</div>
         <ul class="option-sublist">
-          <li>Start your <span class="highlight-training">TRAINING & JOB PREP</span> right away</li>
+          <li>Start your <a href="#curriculum-details" class="highlight-training">TRAINING & JOB PREP</a> right away</li>
         </ul>
       </div>
       <div class="branch-right-block">
@@ -124,15 +135,14 @@
             <ul class="option-sublist">
               <li>University and degree program selection</li>
               <li>Application to US Univs</li>
-              <li><span class="highlight-training">TRAINING AND JOB PREP</span> even before landing in the US</li>
+              <li><a href="#curriculum-details" class="highlight-training">TRAINING & JOB PREP</a> even before landing in the US</li>
             </ul>
           </div>
           <div class="tree-node option-node">
             <div class="option-title">Move to US via spouse H4 or L visa</div>
             <ul class="option-sublist">
               <li>Get your visa - Strategies for cracking visa interview</li>
-              <li><span class="highlight-training">TRAINING AND JOB PREP</span> to prepare you even before landing in the US</li>
-            </ul>
+              <li><a href="#curriculum-details" class="highlight-training">TRAINING & JOB PREP</a> to prepare you even before landing in the US</li>
             </ul>
           </div>
         </div>

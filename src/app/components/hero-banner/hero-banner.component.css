@@ -534,7 +534,39 @@
   margin-top: 16px;
 }
 
+.training-main-title {
+  text-align: center;
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 30px;
+  color: #1db954; /* same green as your links */
+}
 
+
+
+.curriculum-flex {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  width: 100%;
+}
+
+.curriculum-section-block {
+  width: 100%;
+}
+
+/* prevent Angular Material or container overrides */
+.curriculum-section .container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* mobile */
+@media (max-width: 768px) {
+  .curriculum-flex {
+    grid-template-columns: 1fr;
+  }
+}
 
 
 
