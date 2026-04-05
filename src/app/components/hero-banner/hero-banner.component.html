@@ -74,7 +74,7 @@
 
   <!-- LEFT: Curriculum -->
   <div class="curriculum-section-block">
-    <h2>Curriculum details</h2>
+    <h2>Curriculum details </h2>
     <div class="curriculum-list">
       <div *ngFor="let item of curriculumItems; let i = index" class="curriculum-item">
         <button type="button" class="curriculum-title" (click)="toggleCurriculum(i)">
@@ -82,7 +82,7 @@
           <mat-icon>{{ expandedIndex === i ? 'expand_less' : 'expand_more' }}</mat-icon>
         </button>
         <div class="curriculum-detail" *ngIf="expandedIndex === i">
-          <p>{{ item.detail }}</p>
+          <p>{{ item.details }}</p>
         </div>
       </div>
     </div>
@@ -93,11 +93,11 @@
     <h2 class="subheading">Job Preparation</h2>
     <div class="curriculum-list">
       <div *ngFor="let item of jobPrepItems; let j = index" class="curriculum-item">
-        <button type="button" class="curriculum-title" (click)="toggleCurriculum(curriculumItems.length + j)">
+        <button type="button" class="curriculum-title" (click)="toggleCurriculum(jobPrepItems.length + j)">
           <span>{{ item.title }}</span>
-          <mat-icon>{{ expandedIndex === curriculumItems.length + j ? 'expand_less' : 'expand_more' }}</mat-icon>
+          <mat-icon>{{ expandedIndex === jobPrepItems.length + j ? 'expand_less' : 'expand_more' }}</mat-icon>
         </button>
-        <div class="curriculum-detail" *ngIf="expandedIndex === curriculumItems.length + j">
+        <div class="curriculum-detail" *ngIf="expandedIndex === jobPrepItems.length + j">
           <p>{{ item.detail }}</p>
         </div>
       </div>
@@ -140,6 +140,13 @@
           </div>
           <div class="tree-node option-node">
             <div class="option-title">Move to US via spouse H4 or L visa</div>
+            <ul class="option-sublist">
+              <li>Get your visa - Strategies for cracking visa interview</li>
+              <li><a href="#curriculum-details" class="highlight-training">TRAINING & JOB PREP</a> to prepare you even before landing in the US</li>
+            </ul>
+          </div>
+          <div class="tree-node option-node">
+            <div class="option-title">Move to US via H1B or L1 visa</div>
             <ul class="option-sublist">
               <li>Get your visa - Strategies for cracking visa interview</li>
               <li><a href="#curriculum-details" class="highlight-training">TRAINING & JOB PREP</a> to prepare you even before landing in the US</li>

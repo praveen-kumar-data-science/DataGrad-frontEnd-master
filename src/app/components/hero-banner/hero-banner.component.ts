@@ -41,31 +41,61 @@ export class HeroBannerComponent {
   }
 
   curriculumItems = [
-    {
-      title: 'SQL training & Interview prep (1 month)',
-      detail: 'Live SQL practice, query optimization, interview drills, and real dataset case studies to help you answer employer questions with confidence.'
-    },
-    {
-      title: 'Python training (1 month)',
-      detail: 'Python fundamentals, data manipulation, scripting, and hands-on exercises focused on the skills recruiters expect.'
-    },
-    {
-      title: 'Big data - Spark training in Databricks (1 month)',
-      detail: 'Databricks labs, Spark architecture, ETL pipelines, and cluster performance tuning for production-ready big data workflows.'
-    },
-    {
-      title: 'Pyspark Code training (1 week project)',
-      detail: 'Build Pyspark pipelines, UDFs, DataFrame optimization, and clean coding best practices for data engineering roles through a focused one-week project.'
-    },
-    {
-      title: 'AI training',
-      detail: 'Integrate AI models with big data, deploy projects end-to-end, and create employer-ready case studies.'
-    },
-    {
-      title: 'Internship/Project',
-      detail: 'Build real world big data projects + AI to showcase practical experience and make your profile stand out.'
-    }
-  ];
+  {
+    title: 'SQL Training & Interview Prep (1 month)',
+    details: [
+      'SQL fundamentals (joins, aggregations, window functions)',
+      'Advanced SQL for interviews',
+      'Real-world datasets practice',
+      'Interview question patterns'
+    ]
+  },
+  {
+    title: 'Python Training (1 month)',
+    details: [
+      'Core Python (loops, functions, OOP)',
+      'Data handling with Pandas',
+      'Problem solving for interviews',
+      'Mini projects'
+    ]
+  },
+  {
+    title: 'Big Data - Spark Training in Databricks (1 month)',
+    details: [
+      'Spark fundamentals (RDD, DataFrames)',
+      'Databricks workflows',
+      'Performance optimization',
+      'Real production use cases'
+    ]
+  },
+  {
+    title: 'PySpark Code Training (1 week project)',
+    details: [
+      'End-to-end project using PySpark',
+      'Joins, transformations, aggregations',
+      'Debugging and optimization',
+      'Industry-style pipeline building'
+    ]
+  },
+  {
+    title: 'AI Training',
+    details: [
+      'Basics of Machine Learning',
+      'Intro to LLMs and AI tools',
+      'Real-world AI use cases',
+      'Hands-on mini projects'
+    ]
+  },
+  {
+    title: 'Internship / Project',
+    details: [
+      'Work on real-world project',
+      'Simulate industry environment',
+      'Build portfolio-ready experience',
+      'Guided mentorship'
+    ]
+  }
+];
 
   jobPrepItems = [
     {
