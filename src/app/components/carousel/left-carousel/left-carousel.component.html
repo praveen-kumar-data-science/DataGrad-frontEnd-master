@@ -3,8 +3,9 @@
 [config]="slideConfig">
 @for (slide of slides; track slide.img) {
 <div ngxSlickItem class="slide">
-<img class="imgclass" src="{{ slide.img }}" alt="" style="max-width: 100%; height: auto;">
-<br>
+	<img class="imgclass" [src]="slide.img" [alt]="slide.alt" loading="lazy" referrerpolicy="no-referrer">
+	<div class="slide-overlay"></div>
+	<div class="slide-title">{{ slide.title }}</div>
 </div>
 }
 </ngx-slick-carousel>

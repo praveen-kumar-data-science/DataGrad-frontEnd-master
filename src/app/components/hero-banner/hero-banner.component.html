@@ -1,8 +1,8 @@
-<section class="hero-section">
+<section id="hero" class="hero-section">
   <div class="hero-shell">
     <div class="hero-copy">
       <span class="eyebrow">US career transition program</span>
-      <h1>Move from learning data tools to landing a structured data engineering career path.</h1>
+      <h1>Your guided path to Data engineering/AI job in the US.</h1>
       <p class="hero-lead">
         DataGrad combines technical training, project delivery, resume positioning, and interview prep into one guided path for candidates targeting data engineering and AI roles in the US.
       </p>
@@ -16,10 +16,10 @@
       </div>
 
       <div class="hero-actions">
-        <a mat-flat-button routerLink="/" fragment="what-we-do" class="primary-button">
+        <a mat-flat-button href="#what-we-do" class="primary-button">
           Explore the Program
         </a>
-        <a mat-stroked-button routerLink="/" fragment="contact" class="secondary-button">
+        <a mat-stroked-button href="#contact" class="secondary-button">
           Talk to Us
         </a>
       </div>
@@ -43,10 +43,6 @@
     @if(!isSmallScreen) {
       <div class="hero-media">
         <div class="media-frame">
-          <div class="media-intro">
-            <span class="media-kicker">Program snapshot</span>
-            <h2>Projects, positioning, and job readiness in one place.</h2>
-          </div>
           <app-merged-carousel></app-merged-carousel>
         </div>
       </div>
@@ -200,6 +196,10 @@
         <div>
           <strong>Include:</strong>
           <span>your visa status, location, and the kind of role you want to reach.</span>
+        </div>
+        <div>
+          <strong>Email:</strong>
+          <span><a href="mailto:datagradai&#64;gmail.com">datagradai&#64;gmail.com</a></span>
         </div>
       </div>
     </div>

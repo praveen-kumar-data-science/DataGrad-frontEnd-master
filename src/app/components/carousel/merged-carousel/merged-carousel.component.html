@@ -1,9 +1,12 @@
 <div class="carousel-shell">
-  <div class="leftsidecarousel">
-    <app-left-carousel></app-left-carousel>
-  </div>
-  <div class="rightsidecarousel">
-    <app-right-carousel></app-right-carousel>
+  <div class="hero-grid">
+    @for (slide of slides; track slide.img) {
+    <div class="hero-slide">
+      <img class="hero-image" [src]="slide.img" [alt]="slide.alt" loading="lazy">
+      <div class="hero-overlay"></div>
+      <div class="hero-title">{{ slide.title }}</div>
+    </div>
+    }
   </div>
 </div>
 

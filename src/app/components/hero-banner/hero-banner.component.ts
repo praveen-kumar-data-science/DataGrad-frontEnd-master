@@ -10,6 +10,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { CommonModule } from '@angular/common';
+import emailjs from '@emailjs/browser';
 @Component({
   selector: 'app-hero-banner',
   standalone: true,
@@ -135,14 +136,27 @@ export class HeroBannerComponent {
       .subscribe(result => {
         this.isSmallScreen = result.matches;
       });
+    emailjs.init('U5uIYArDWBCqC7Av0');
   }
 
   onSubmit() {
     if (this.contactForm.valid) {
-      console.log('Form Data:', this.contactForm.value);
-      // Handle form submission here
-      alert('Thank you for your message!');
-      this.contactForm.reset();
+      const formData = this.contactForm.value;
+      const emailParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        message: formData.message,
+        to_email: 'datagradai@gmail.com'
+      };
+      emailjs.send('service_datagrad', 'template_datagrad', emailParams)
+        .then(() => {
+          alert('Thank you! Your message has been sent successfully. We will get back to you soon.');
+          this.contactForm.reset();
+        })
+        .catch((error) => {
+          console.error('Email send failed:', error);
+          alert('Sorry, there was an error sending your message. Please try again.');
+        });
     }
   }
 }
