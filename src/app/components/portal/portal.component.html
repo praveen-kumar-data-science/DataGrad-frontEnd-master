@@ -1,14 +1,58 @@
 <section class="portal-page">
-  <div class="portal-card">
-    <span class="portal-eyebrow">Protected Area</span>
-    <h1>Welcome to the DataGrad Portal</h1>
-    <p>
-      This page is guarded. Anyone opening the portal route must pass the login page first.
-    </p>
+  <div class="portal-shell">
+    <div class="portal-hero">
+      <div>
+        <span class="portal-eyebrow">Protected Training Portal</span>
+        <h1>Welcome to your DataGrad training workspace</h1>
+        <p>
+          Review the program by section, open the lessons inside each module, and work through the sequence the same way a structured prep dashboard would present it.
+        </p>
+      </div>
 
-    <div class="portal-actions">
-      <a mat-stroked-button routerLink="/">Back to homepage</a>
-      <button mat-flat-button type="button" class="portal-logout" (click)="logout()">Logout</button>
+      <div class="portal-actions">
+        <div class="portal-user">
+          <span>Signed in as</span>
+          <strong>{{ currentUser }}</strong>
+        </div>
+        <a mat-stroked-button routerLink="/">Back to homepage</a>
+        <button mat-flat-button type="button" class="portal-logout" (click)="logout()">Logout</button>
+      </div>
+    </div>
+
+    <div class="portal-layout">
+      <aside class="portal-sidebar">
+        <span class="sidebar-label">Sections</span>
+        <button
+          *ngFor="let section of trainingSections"
+          type="button"
+          class="section-nav-item"
+          [class.active]="section.id === selectedSectionId"
+          (click)="selectSection(section.id)">
+          <span>{{ section.label }}</span>
+          <small>{{ section.lessons.length }} lessons</small>
+        </button>
+      </aside>
+
+      <div class="portal-content">
+        <div class="section-summary">
+          <span class="section-kicker">{{ selectedSection.label }}</span>
+          <h2>{{ selectedSection.label }} Training</h2>
+          <p>{{ selectedSection.description }}</p>
+        </div>
+
+        <div class="lesson-grid">
+          <article *ngFor="let lesson of selectedSection.lessons" class="lesson-card">
+            <div class="lesson-header">
+              <h3>{{ lesson.title }}</h3>
+              <span>{{ lesson.topics.length }} topics</span>
+            </div>
+
+            <ul>
+              <li *ngFor="let topic of lesson.topics">{{ topic }}</li>
+            </ul>
+          </article>
+        </div>
+      </div>
     </div>
   </div>
 </section>

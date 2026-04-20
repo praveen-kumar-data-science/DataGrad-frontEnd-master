@@ -1,20 +1,30 @@
 <section class="login-page">
   <div class="login-card">
     <span class="login-eyebrow">Member Access</span>
-    <h1>Login to DataGrad</h1>
+    <h1>{{ activeView === 'login' ? 'Login to DataGrad' : 'Create your DataGrad account' }}</h1>
     <p>
-      Enter your credentials to open the protected portal.
+      {{ activeView === 'login'
+        ? 'Enter your credentials to open the protected training portal.'
+        : 'Register with your email address and a strong password to access the training portal.' }}
     </p>
 
-    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form">
+    <div class="auth-switcher" aria-label="Authentication mode switcher">
+      <button type="button" class="switch-chip" [class.active]="activeView === 'login'" (click)="setActiveView('login')">Login</button>
+      <button type="button" class="switch-chip" [class.active]="activeView === 'register'" (click)="setActiveView('register')">Register</button>
+    </div>
+
+    <form *ngIf="activeView === 'login'" [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form">
       <mat-form-field appearance="outline">
-        <mat-label>Username</mat-label>
-        <input matInput formControlName="username" autocomplete="username">
+        <mat-label>Email address</mat-label>
+        <input matInput formControlName="email" autocomplete="username">
+        <mat-error *ngIf="fieldHasError(loginForm.get('email'), 'required')">Email is required</mat-error>
+        <mat-error *ngIf="fieldHasError(loginForm.get('email'), 'email')">Enter a valid email address</mat-error>
       </mat-form-field>
 
       <mat-form-field appearance="outline">
         <mat-label>Password</mat-label>
         <input matInput type="password" formControlName="password" autocomplete="current-password">
+        <mat-error *ngIf="fieldHasError(loginForm.get('password'), 'required')">Password is required</mat-error>
       </mat-form-field>
 
       <p *ngIf="loginError" class="login-error">{{ loginError }}</p>
@@ -22,8 +32,38 @@
       <button mat-flat-button type="submit" class="login-button">Login</button>
     </form>
 
+    <form *ngIf="activeView === 'register'" [formGroup]="registerForm" (ngSubmit)="register()" class="login-form">
+      <mat-form-field appearance="outline">
+        <mat-label>Email address</mat-label>
+        <input matInput formControlName="email" autocomplete="email">
+        <mat-error *ngIf="fieldHasError(registerForm.get('email'), 'required')">Email is required</mat-error>
+        <mat-error *ngIf="fieldHasError(registerForm.get('email'), 'email')">Enter a valid email address</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Password</mat-label>
+        <input matInput type="password" formControlName="password" autocomplete="new-password">
+        <mat-error *ngIf="fieldHasError(registerForm.get('password'), 'required')">Password is required</mat-error>
+        <mat-error *ngIf="fieldHasError(registerForm.get('password'), 'pattern')">
+          Use at least 12 characters including 1 uppercase letter, 1 number, 1 special character, and letters.
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Confirm password</mat-label>
+        <input matInput type="password" formControlName="confirmPassword" autocomplete="new-password">
+        <mat-error *ngIf="fieldHasError(registerForm.get('confirmPassword'), 'required')">Confirm your password</mat-error>
+      </mat-form-field>
+
+      <p class="password-rule">Password must be 12+ characters and include uppercase, number, special character, and letters.</p>
+      <p *ngIf="registerError" class="login-error">{{ registerError }}</p>
+      <p *ngIf="registerSuccess" class="register-success">{{ registerSuccess }}</p>
+
+      <button mat-flat-button type="submit" class="login-button">Register</button>
+    </form>
+
     <div class="login-meta">
-      <span>Configured demo credentials live in the auth service.</span>
+      <span>{{ activeView === 'login' ? 'Use a registered email address to sign in.' : 'Registered users are stored locally in this browser.' }}</span>
       <a routerLink="/">Back to homepage</a>
     </div>
   </div>
